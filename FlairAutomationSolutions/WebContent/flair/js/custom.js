@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
 	});
 
 	$("#multimenu").click(function (){
-		window.open("products.html","_self"),
+		window.open("products.php","_self"),
 		$(this).removeClass('open'),
 		$(this).toggleClass('open');
 

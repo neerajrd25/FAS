@@ -114,86 +114,25 @@ echo 'OK';
 <body>
 <div id="wrapper">
 	<!-- start header -->
-	<header>
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><span class="firstLogoWord" style="color:#FF6600;">flair</span> <span class="SecondLogoWord" style="color:#0028CA;">Automation Solutions</span></a>
-                </div>
-                <div class="navbar-collapse collapse ">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="aboutus.html">About us</a></li>
-                        
-                       	<li style="padding-bottom: 0px;" id="multimenu">
-                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
-                    		<ul class="dropdown-menu multi-level">
-                    			<li class="dropdown-submenu">
-		                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mechanical Design</a>
-		                            <ul class="dropdown-menu">
-		                                <li><a href="#">Jigs &#038; fixtures design</a></li>
-		                                <li><a href="#">Process Structural Design</a></li>
-		                            </ul>
-		                        </li>
-
-                    			<li class="dropdown-submenu">
-		                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installations &#38; Integration</a>
-		                            <ul class="dropdown-menu">
-		                                <li><a href="#">Mechanical Assembly</a></li>
-		                                <li><a href="#">Mechanical Installations</a></li>
-		                                <li><a href="#">Controls Integrations</a></li>
-		                                <li><a href="#">Controls Installations</a></li>
-		                            </ul>
-		                        </li>
-
-		                        <li class="dropdown-submenu">
-		                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Controls Systems</a>
-		                            <ul class="dropdown-menu">
-		                                <li><a href="#">Concept &#38; System Design</a></li>
-		                                <li><a href="#">Panel Design</a></li>
-		                            </ul>
-		                        </li>
-
-		                        <li class="dropdown-submenu">
-		                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Machinery &#38; Relocation</a>
-		                            <ul class="dropdown-menu">
-		                                <li><a href="#">-NA-</a></li>
-		                                <li><a href="#">-NA-</a></li>
-		                            </ul>
-		                        </li>
-                    		</ul>
-                		</li>
-                        <li><a href="gallery.html">Gallery</a></li>                        
-                        <li><a href="team.html">Team</a></li>
-                        <li class="actives"><a href="contact.php">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-	</header>
+        <?php include("header.html");?>
 	<!-- end header -->
 	<section id="inner-headline">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<ul class="breadcrumb">
-					<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-					<li class="active">Contact Us</li>
-				</ul>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+						<li class="active">Contact Us</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 	</section>
 	<section id="content">
-	<div class="map">
-		<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
-		</iframe>
-	</div>
+		<div class="map">
+			<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
+			</iframe>
+		</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -240,79 +179,10 @@ echo 'OK';
 		</div>
 	</div>
 	</section>
-	<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Get in touch with us</h5>
-					<address>
-					<strong>flair Automation Solutions</strong><br/>
-					 S. NO - 22/B-1,  Balajinagar,<br/>
-					 Pune-Satara road, Pune-411043</address>
-					
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<p>
-						<h5 class="widgetheading">Contact Details</h5>
-						<i class="icon-phone"></i>+91 8888891627<br/>
-						<i class="icon-envelope-alt"></i>sb.flair@gmail.com<br/><br/>
-						<i class="icon-phone"></i>+91 7218720004<br/>
-						<i class="icon-envelope-alt"></i> nikhilesh.patel@flairautomation.com<br/><br/>
-						<i class="icon-phone"></i>+91 7722033607<br/>
-						<i class="icon-envelope-alt"></i> abhijeet.n@flairautomation.com<br/>
-					</p>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Pages</h5>
-					<ul class="link-list">
-						<li><a href="#">Products</a></li>
-						<li><a href="#">Terms and conditions</a></li>
-						<li><a href="#">Privacy policy</a></li>
-						<li><a href="#">Career center</a></li>
-						<li><a href="#">Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3" style="display:none;">
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="link-list">
-						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-			
-	</div>
-	<div id="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
-							<span>&copy; 2015 flair Automation Solutions  All right reserved.
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<ul class="social-network">
-						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
+	
+	<!-- start footer -->
+        <?php include("footer.html");?>
+	<!-- end footer -->
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
