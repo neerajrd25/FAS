@@ -86,6 +86,15 @@ img.client_page:hover {
 
 /*client page end */
 
+/*contact page */
+label.error{
+    color:#E20E0E;
+    font-style:oblique;
+    font-weight: normal;
+
+}
+
+/*contact page end */
 
 
 /* home page */
