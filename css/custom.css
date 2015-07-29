@@ -1,0 +1,112 @@
+/* MENU */
+
+.dropdown-toggle:hover>.dropdown-menu {
+display: block;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 0px 0px 0px;
+    -moz-border-radius: 0 0px 0px;
+    border-radius: 0 0px 0px 0px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 0px 0 0px 0px;
+    -moz-border-radius: 0px 0 0px 0px;
+    border-radius: 0px 0 0px 0px;
+}
+
+/* MENU END*/
+
+/* LOGO */
+
+span.firstLogoWord
+{
+    font-family:'Open Sans Extrabold';
+    font-size: 42px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+span.SecondLogoWord
+{
+    font-family:'Open Sans Semibold';
+    font-size: 36px;
+    text-transform: capitalize;
+}
+
+/* LOGO END */
+
+
+/*client page */
+img.client_page {
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+img.client_page:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/*client page end */
+
+/*contact page */
+label.error{
+    color:#E20E0E;
+    font-style:oblique;
+    font-weight: normal;
+
+}
+
+/*contact page end */
+
+
+/* home page */
+p.list_style
+{
+    text-align: left;
+    padding-left: 60px;
+}
+
+span.specail_list
+{
+    display: inline-flex;
+    width: 100%;
+    line-height: 14px;
+}
