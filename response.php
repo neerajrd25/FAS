@@ -19,7 +19,7 @@ function test_function(){
   $databasename="flair";
   $user="root";
   $pass="admin";
-  $return["datac"] = $return['full_name'];
+  
     $conn=mysql_connect($host,$user,$pass);    
     $db_selected = mysql_select_db($databasename, $conn);
       if (!$db_selected) {

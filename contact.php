@@ -10,25 +10,7 @@
         <?php include("includes/common_header.html");?>
 <!-- end common header -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<style>
-      #map-canvas {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
-    <script>
-      function initialize() {
-        var mapCanvas = document.getElementById('map-canvas');
-        var mapOptions = {
-          center: new google.maps.LatLng(44.5403, -78.5463),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+
 <script type="text/javascript">
 		$(function() {
 			jQuery.validator.addMethod("lettersonly", function(value, element) {
@@ -107,7 +89,7 @@
 					      	$( '#email' ).val(' ');
 					      	$( '#subject' ).val(' ');	
 					      	$( '#message' ).val(' ');
-					      	$('.sendmessage').fadeOut(3600);
+					      	$('.sendmessage').fadeOut(36000);
 					        //alert("Form submitted successfully.\nReturned json: " + data["json"]);
 					      },
 					       error: function(data){
@@ -145,6 +127,7 @@
 			<div class="map">
 				<div class="row">
 					<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
+			</iframe>
 			</iframe>
 				</div>
 				
