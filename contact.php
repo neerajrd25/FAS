@@ -9,131 +9,176 @@
 <!-- start common header -->
         <?php include("includes/common_header.html");?>
 <!-- end common header -->
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+		$(function() {
+			jQuery.validator.addMethod("lettersonly", function(value, element) {
+				  return this.optional(element) || /^[a-zA-Z\s]*$/i.test(value);
+			}, "Letters only please");
+			$("#contactForm").validate({
+				// Specify the validation rules
+			        rules: {
+			            name: {
+			            	required : true,
+			            	lettersonly: true
+			            },
+			            phoneNumber: {
+			            	required : true,
+			            	digits: true,
+			            	maxlength: 10
+			            	
+			            },
+			            email: {
+			            	required : true,
+			            	email: true
+			            },
+			            subject: {
+			            	required : true,
+			            	rangelength:[10,250]
+			            },
+			            message: {
+			            	required : true,
+			            	rangelength:[50,1050]
+			            }
+			        },
+			        messages: {
+                        "name": {
+                            required: 'Please Enter Full Name'
+                        },  
+                        "phoneNumber": {
+                            required: 'Please Enter Phone Number',
+					        digits: 'number should be in digits',
+					        maxlength: 'Number should be in 10 digits'
+                        },
+                        "email": {
+                            required: 'Please Enter Email id',
+			            	email: 'Email Format is wrong'
+                        },
+                        "subject": {
+                            required: 'Please Enter subject',
+                            rangelength: 'subject length should be more than 10 characters'
+                        },
+                        "message": {
+                            required: 'Please Enter message',
+                            rangelength: 'message length should be more than 50 characters'
+                        }
+                    },
+			        submitHandler: function(data) {
+						  var data = {
+					      "action": "insertdb",
+					      "full_name" : $( '#name' ).val(),
+					      "phoneNumber" : $( '#phoneNumber' ).val(),
+					      "email" : $( '#email' ).val(),
+					      "subject" : $( '#subject' ).val(),
+					      "message" : $( '#message' ).val()
+					    };		   
+
+					    $.ajax({
+					      type: "POST",
+					      dataType: "json",
+					      url: "response.php", //Relative or absolute path to response.php file
+					      data: data,
+					      success: function(data) {	
+
+					        $(".sendmessage").html(
+					          data["full_name"] + " message send successfully we will get back to you shortly"
+					        );
+					      	$( '#name' ).val(' ');	
+					      	$( '#phoneNumber' ).val(' ');		
+					      	$( '#email' ).val(' ');
+					      	$( '#subject' ).val(' ');	
+					      	$( '#message' ).val(' ');
+					      	$('.sendmessage').fadeOut(36000);
+					        //alert("Form submitted successfully.\nReturned json: " + data["json"]);
+					      },
+					       error: function(data){
+						        $(".sendmessage").html(
+						        	"There is some promblem in server you can contact to ABC"
+					        );
+						    }
+					    });
+			    return false;
+			        }
+			});
+		});
+</script>
 </head>
-<body>
-	<?php
-	if(isset($_POST['submitForm']))
-	{
-	$dbhost = 'localhost';
-	$dbuser = 'root';
-	$dbpass = 'admin';
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-	if(! $conn )
-	{
-	  die('Could not connect: ' . mysql_error());
-	}
 
-	if(! get_magic_quotes_gpc() )
-	{
-	   $full_name = addslashes ($_POST['name']);
-	   $mobile_no = addslashes ($_POST['phoneNumber']);
-	   $email_id = addslashes ($_POST['email']);
-	   $subject = addslashes ($_POST['subject']);
-	   $message_text = addslashes ($_POST['message']);
-	}
-	else
-	{
-	   $full_name = $_POST['name'];
-	   $mobile_no = $_POST['phoneNumber'];
-	   $email_id = $_POST['email'];
-	   $subject = $_POST['subject'];
-	   $message_text = $_POST['message'];
-	}
-	
+<body>	
+	<div id="wrapper">
+		<!-- start header -->
+	        <?php include("header.html");?>
+		<!-- end header -->
+		<section id="inner-headline">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+							<li class="active">Contact Us</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<br/>
+		<section id="content">
+			<div class="map">
+				<div class="row">
+					<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
+			</iframe>
+			</iframe>
+				</div>
+				
+			</div>
 
-	$sql = "INSERT INTO contact_table ".
-	       "(full_name,mobile_no, email_id, subject,message_text) ".
-	       "VALUES('$full_name',$mobile_no, '$email_id', '$subject', '$message_text')";
-	mysql_select_db('flair');
-	$retval = mysql_query( $sql, $conn );
-	if(! $retval )
-	{
-	  die('Could not enter data: ' . mysql_error());
-	}
-	echo "Entered data successfully\n";
-	mysql_close($conn);
-	}
-	else
-	{
-	?>
-<div id="wrapper">
-	<!-- start header -->
-        <?php include("header.html");?>
-	<!-- end header -->
-	<section id="inner-headline">
 		<div class="container">
+
 			<div class="row">
 				<div class="col-lg-12">
-					<ul class="breadcrumb">
-						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-						<li class="active">Contact Us</li>
-					</ul>
+					<h4>Get in touch with us by filling <strong>contact form below</strong></h4>
+					<form method="post" id="contactForm" novalidate="novalidate" accept-charset="utf-8">
+						<div class="sendmessage" >							 
+						</div>
+						<div class="row">
+							<div class="col-lg-3 field">
+								<input type="text" name="name" id="name" placeholder="* Enter your full name" style="width:100%;" />
+							</div>
+							<div class="col-lg-3 field">
+								<input type="text" name="phoneNumber" id="phoneNumber" placeholder="* Enter your phone number" style="width:100%;"/>
+							</div>
+							<div class="col-lg-3 field">
+								<input type="text" name="email" id="email" placeholder="* Enter your email address" style="width:100%;" />
+							</div>
+							<div class="col-lg-3 field">
+								<input type="text" name="subject" id="subject" placeholder="* Enter your subject" style="width:100%;"/>
+							</div>
+							<div class="col-lg-12 margintop10 field">
+								<textarea rows="12" name="message" id="message" class="input-block-level" placeholder="* Your message here..." style="width:100%;"></textarea>
+								<p>
+									<button class="btn btn-theme margintop10 pull-left" type="submit" id="submitForm">Submit message</button>
+									<span class="pull-right margintop20">* Please fill all required form field, thanks!</span>
+								</p>						
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
-	<section id="content">
-		<div class="map">
-			<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
-			</iframe>
-		</div>
-
-	<div class="container">
-
-		<div class="row">
-			<div class="col-lg-12">
-				<h4>Get in touch with us by filling <strong>contact form below</strong></h4>
-				<form id="contactform" action="<?php $_PHP_SELF ?>" method="post" class="validateform" name="send-contact">
-					<div id="sendmessage">
-						 Your message has been sent. Thank you!
-					</div>
-					<div class="row">
-						<div class="col-lg-3 field">
-							<input type="text" name="name" placeholder="* Enter your full name" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-							<div class="validation">
-							</div>
-						</div>
-						<div class="col-lg-3 field">
-							<input type="text" name="phoneNumber" placeholder="* Enter your phone number" data-rule="phoneNumber" data-msg="Please enter a valid phone number" />
-							<div class="validation">
-							</div>
-						</div>
-						<div class="col-lg-3 field">
-							<input type="text" name="email" placeholder="* Enter your email address" data-rule="email" data-msg="Please enter a valid email" />
-							<div class="validation">
-							</div>
-						</div>
-						<div class="col-lg-3 field">
-							<input type="text" name="subject" placeholder="Enter your subject" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-							<div class="validation">
-							</div>
-						</div>
-						<div class="col-lg-12 margintop10 field">
-							<textarea rows="12" name="message" class="input-block-level" placeholder="* Your message here..." data-rule="required" data-msg="Please write something"></textarea>
-							<div class="validation">
-							</div>
-							<p>
-								<button class="btn btn-theme margintop10 pull-left" type="submit" id="submitForm">Submit message</button>
-								<span class="pull-right margintop20">* Please fill all required form field, thanks!</span>
-							</p>						
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
+		</section>
+		
+		<!-- start footer -->
+	        <?php include("footer.html");?>
+		<!-- end footer -->
 	</div>
-	</section>
-	
-	<!-- start footer -->
-        <?php include("footer.html");?>
-	<!-- end footer -->
-</div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- start common footer -->
         <?php include("includes/common_footer.html");?>
 <!-- end common footer -->
-<?php
-}
-?>
+<script type="text/javascript">			
+		$("#homelink").removeClass("active");
+		$("#contactlink").addClass("active");
+	</script>
 </body>
 </html>
