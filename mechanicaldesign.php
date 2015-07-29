@@ -11,6 +11,25 @@
 <!-- end common header -->
 </head>
 <body>
+<!-- it works the same with all jquery version from 1.x to 2.x -->
+    <script type="text/javascript" src="js/boxslider/jquery-1.9.1.min.js"></script>
+    <!-- use jssor.slider.mini.js (40KB) instead for release -->
+    <!-- jssor.slider.mini.js = (jssor.js + jssor.slider.js) -->
+    <script type="text/javascript" src="js/boxslider/jssor.js"></script>
+    <script type="text/javascript" src="js/boxslider/jssor.slider.js"></script>
+    <script>
+
+        jQuery(document).ready(function ($) {
+            var options = {
+
+                $AutoPlay: true,                      //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $DragOrientation: 0                   //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+            var jssor_slider2 = new $JssorSlider$("slider2_container", options);
+        });
+    </script>
 <div id="wrapper" >
 	<!-- start header -->
         <?php include("header.html");?>
@@ -34,10 +53,29 @@
 				<div class="col-lg-12">
 					<div class="col-lg-4">
 						<div id="box1">
-							<img src="img\services\mech_design\ADT_STRUCTURE FOR KBK RILS AND PLATFORM.jpg" border="0">
+							<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 300px; height: 200px;outline-style: solid;">
+						        <!-- Slides Container -->
+						        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 300px; height: 200px;
+						            overflow: hidden;">
+						            <div><img u="image" src="img/services/mech_design/ADT_STRUCTURE FOR KBK RILS AND PLATFORM.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/AL-CARGO_FLOOR ROTARY FIXTURE.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/AL-CARGO_TUNNEL FIXTURE ON WHEELS.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/AL-CARGO_UB-05 MODIFICATION_PNEUMATIC SWING UNIT.jpg" /></div>
+						        </div>       
+				    		</div>
 						</div>
+						<br/>
 						<div id="box2">
-							<img src="img\services\manufacturing\02-2.jpg" height="30" border="0">
+							<div id="slider2_container" style="position: relative; top: 0px; left: 0px; width: 300px; height: 100px;outline-style: solid">
+						        <!-- Slides Container -->
+						        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 300px; height: 100px;
+						            overflow: hidden;">
+						            <div><img u="image" src="img/services/mech_design/Logo/ashok_leyland.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/Logo/advanced1.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/Logo/advanced2.jpg" /></div>
+						            <div><img u="image" src="img/services/mech_design/Logo/advanced3.jpg" /></div>
+						        </div>       
+				    		</div>
 						</div>
 					</div>
 					<div class="col-lg-8">
@@ -98,7 +136,8 @@
 										      <li>Gun Study and Gun Selection.</li>
 										      <li>Design Approval.</li>
 										      <li>Bought out items finalization.</li>
-										      <li>Preparation of Pneumatic sequence sheet.</li>									 <li>Detailing, BOM and Manufacturing releases.</li>
+										      <li>Preparation of Pneumatic sequence sheet.</li>									 
+										      <li>Detailing, BOM and Manufacturing releases.</li>
 										      <li>Jig Inspection sheets.</li>
 											</ul>
 							            </div>
