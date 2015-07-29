@@ -92,7 +92,7 @@
 <!-- end common footer -->
 	<script type="text/javascript">			
 		$("#homelink").removeClass("active");
-		$("#serviceslink").addClass("active");
+		$("#clientslink").addClass("active");
 	</script>
 </body>
 </html>
