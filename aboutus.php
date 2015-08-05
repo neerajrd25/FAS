@@ -64,6 +64,11 @@
 		$("#boardid").mouseover().css('cursor','pointer');
 		$("#homelink").removeClass("active");
 		$("#aboutuslink").addClass("active");
+		/* Neeraj 05 AUG CHANGE */
+		$(document).ready(function() {
+			 $("#aboutus_div").load("aboutusdiv.html").fadeIn('1000');
+		});
+		/* 05 AUG END */
 	</script>
 </body>
 </html>
