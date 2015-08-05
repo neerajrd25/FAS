@@ -10,6 +10,41 @@
         <?php include("includes/common_header.html");?>
 <!-- end common header -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<!-- 
+Intergate Google MAPS 
+ -->
+<style>
+#map-canvas {
+	width: 90%;
+	height: 400px;
+	margin-left: 5%;
+	outline-style: ridge;
+}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var myLatlng = new google.maps.LatLng(18.571116, 73.78326);
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+//adding ICONS
+        
+    	
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Flair Automation Solutions'
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+ </script>
+
 
 <script type="text/javascript">
 		$(function() {
@@ -124,20 +159,13 @@
 		</section>
 		<br/>
 		<section id="content">
-			<div class="map">
-				<div class="row">
-					<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Kuningan,+Jakarta+Capital+Region,+Indonesia&amp;aq=3&amp;oq=kuningan+&amp;sll=37.0625,-95.677068&amp;sspn=37.410045,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=Kuningan&amp;t=m&amp;z=14&amp;ll=-6.238824,106.830177&amp;output=embed">
-			</iframe>
-			</iframe>
-				</div>
-				
-			</div>
+			<div id="map-canvas"></div>
 
 		<div class="container">
-
 			<div class="row">
 				<div class="col-lg-12">
-					<h4>Get in touch with us by filling <strong>contact form below</strong></h4>
+					<br/>
+					<h4>Get in touch with us by filling contact form below</h4>
 					<form method="post" id="contactForm" novalidate="novalidate" accept-charset="utf-8">
 						<div class="sendmessage" >							 
 						</div>
